@@ -1,15 +1,14 @@
 package com.bhargav.tickets.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -22,17 +21,40 @@ import java.util.UUID;
 public class User {
     @Id
     private UUID id;
+
     @Column(name="name",nullable = false,updatable = false)
     private String name;
+
     @Column(name = "email",nullable = false)
     private String email;
-    //TODO: Organized events
-    //TODO:  Attending events
-    //TODO: Staffing events
+
+    @OneToMany(mappedBy = "organizer",cascade = CascadeType.ALL)
+    private List<Event> organizedEvents = new ArrayList<>();
+
+
+    @ManyToMany
+    @JoinTable(
+            name="user_attending_events",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "event_id")
+    )
+    private List<Event> attendingEvents = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_staffing_events",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name = "event_id")
+    )
+    private List<Event> staffingEvents = new ArrayList<>();
+
+
+
     @CreatedDate
     @Column(name="create_at",updatable = false,nullable = false)
     private LocalDateTime createdAt;
+
     @LastModifiedDate
     @Column(name="updated_at",nullable = false)
-    private LocalDateTime updated;
+    private LocalDateTime updatedAt;
 }
