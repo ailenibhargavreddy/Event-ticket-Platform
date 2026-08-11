@@ -1,6 +1,6 @@
 package com.bhargav.tickets.repositories;
 
-import com.bhargav.tickets.domain.User;
+import com.bhargav.tickets.domain.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.bhargav.tickets.domain;
+package com.bhargav.tickets.domain.entities;
 
 
 import jakarta.persistence.*;

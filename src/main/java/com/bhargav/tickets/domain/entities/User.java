@@ -1,8 +1,7 @@
-package com.bhargav.tickets.domain;
+package com.bhargav.tickets.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 

@@ -1,6 +1,6 @@
 package com.bhargav.tickets.filters;
 
-import com.bhargav.tickets.domain.User;
+import com.bhargav.tickets.domain.entities.User;
 import com.bhargav.tickets.repositories.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

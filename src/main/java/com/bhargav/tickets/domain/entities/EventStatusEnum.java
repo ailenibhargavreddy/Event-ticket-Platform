@@ -1,4 +1,4 @@
-package com.bhargav.tickets.domain;
+package com.bhargav.tickets.domain.entities;
 
 public enum EventStatusEnum {
     DRAFT,PUBLISHED,CANCELLED,COMPLETED
